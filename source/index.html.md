@@ -1,5 +1,5 @@
 ---
-title: Kong API Gateway v1.0
+title: API Gateway
 language_tabs:
   - shell: Shell
   - http: HTTP
@@ -14,20 +14,19 @@ includes: []
 search: true
 highlight_theme: darkula
 headingLevel: 2
-
 ---
 
 <!-- Generator: Widdershins v4.0.1 -->
 
-<h1 id="kong-api-gateway">Kong API Gateway v1.0</h1>
+<h1 id="api-gateway">API Gateway</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
 Base URLs:
 
-* <a href="https://api.kindlyanswer.me/cveintel/CVE">https://api.kindlyanswer.me/cveintel/CVE</a>
+- <a href="https://api.kindlyanswer.me/cveintel/CVE">https://api.kindlyanswer.me/cveintel/CVE</a>
 
-<h1 id="kong-api-gateway-misc">Misc</h1>
+<h1 id="api-gateway-misc">Misc</h1>
 
 ## WhatistheMITREATT&CKmappingforthisCVE
 
@@ -56,26 +55,24 @@ X-IP: string
 ```
 
 ```javascript
-
 const headers = {
-  'Accept':'application/json',
-  'X-RC':'0',
-  'X-user':'string',
-  'X-IP':'string'
+  Accept: "application/json",
+  "X-RC": "0",
+  "X-user": "string",
+  "X-IP": "string",
 };
 
-fetch('https://api.kindlyanswer.me/cveintel/CVE/CVE-2020-0614',
-{
-  method: 'GET',
+fetch("https://api.kindlyanswer.me/cveintel/CVE/CVE-2020-0614", {
+  method: "GET",
 
-  headers: headers
+  headers: headers,
 })
-.then(function(res) {
+  .then(function (res) {
     return res.json();
-}).then(function(body) {
+  })
+  .then(function (body) {
     console.log(body);
-});
-
+  });
 ```
 
 ```ruby
@@ -193,17 +190,17 @@ func main() {
 
 `GET /CVE-2020-0614`
 
-*What is the MITRE ATT&CK mapping for this CVE?*
+_What is the MITRE ATT&CK mapping for this CVE?_
 
 In order to build complex cyber security scenarios one must map more than +100k vulnerabilities (CVEs) to the corresponding MITRE ATT&CK. The benefit of the corresponding controls allows the organization to better prioritize what actions should be taken. We use natural language processing to achieve this task.
 
 <h3 id="whatisthemitreatt&ckmappingforthiscve-parameters">Parameters</h3>
 
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|X-RC|header|integer(int32)|true|Record Count - Used for billing purposes|
-|X-user|header|string|true|User - Extracted from logged in user (WEB API)|
-|X-IP|header|string|true|IP - Extracted from the requesting user (WEB API)|
+| Name   | In     | Type           | Required | Description                                       |
+| ------ | ------ | -------------- | -------- | ------------------------------------------------- |
+| X-RC   | header | integer(int32) | true     | Record Count - Used for billing purposes          |
+| X-user | header | string         | true     | User - Extracted from logged in user (WEB API)    |
+| X-IP   | header | string         | true     | IP - Extracted from the requesting user (WEB API) |
 
 > Example responses
 
@@ -235,9 +232,9 @@ In order to build complex cyber security scenarios one must map more than +100k 
 
 <h3 id="whatisthemitreatt&ckmappingforthiscve-responses">Responses</h3>
 
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|[WhatistheMITREATT_CKmappingforthisCVE_CVE-2017-0614](#schemawhatisthemitreatt_ckmappingforthiscve_cve-2017-0614)|
+| Status | Meaning                                                 | Description | Schema                                                                                                            |
+| ------ | ------------------------------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------- |
+| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | none        | [WhatistheMITREATT_CKmappingforthisCVE_CVE-2017-0614](#schemawhatisthemitreatt_ckmappingforthiscve_cve-2017-0614) |
 
 <aside class="success">
 This operation does not require authentication
@@ -272,26 +269,25 @@ This operation does not require authentication
   ],
   "Threat_Activity": "Very Low"
 }
-
 ```
 
 Result
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|CVE|string|true|none|none|
-|CVSS2_Score|number(double)|true|none|none|
-|CVSS2_Vector|string|true|none|none|
-|CVSS3_Score|number(double)|true|none|none|
-|CVSS3_Vector|string|true|none|none|
-|CWEs|string|true|none|none|
-|Coverage|string|true|none|none|
-|Exploit_Code|string|true|none|none|
-|Industry_Spread|string|true|none|none|
-|Mitre_Techniques|[[MitreTechnique](#schemamitretechnique)]|true|none|none|
-|Threat_Activity|string|true|none|none|
+| Name             | Type                                      | Required | Restrictions | Description |
+| ---------------- | ----------------------------------------- | -------- | ------------ | ----------- |
+| CVE              | string                                    | true     | none         | none        |
+| CVSS2_Score      | number(double)                            | true     | none         | none        |
+| CVSS2_Vector     | string                                    | true     | none         | none        |
+| CVSS3_Score      | number(double)                            | true     | none         | none        |
+| CVSS3_Vector     | string                                    | true     | none         | none        |
+| CWEs             | string                                    | true     | none         | none        |
+| Coverage         | string                                    | true     | none         | none        |
+| Exploit_Code     | string                                    | true     | none         | none        |
+| Industry_Spread  | string                                    | true     | none         | none        |
+| Mitre_Techniques | [[MitreTechnique](#schemamitretechnique)] | true     | none         | none        |
+| Threat_Activity  | string                                    | true     | none         | none        |
 
 <h2 id="tocS_MitreTechnique">MitreTechnique</h2>
 <!-- backwards compatibility -->
@@ -306,18 +302,17 @@ Result
   "Technique_Name": "Exploitation for Defense Evasion",
   "Technique_Tactic_IDS": "TA0005"
 }
-
 ```
 
 MitreTechnique
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|Technique_ID|string|true|none|none|
-|Technique_Name|string|true|none|none|
-|Technique_Tactic_IDS|string|true|none|none|
+| Name                 | Type   | Required | Restrictions | Description |
+| -------------------- | ------ | -------- | ------------ | ----------- |
+| Technique_ID         | string | true     | none         | none        |
+| Technique_Name       | string | true     | none         | none        |
+| Technique_Tactic_IDS | string | true     | none         | none        |
 
 <h2 id="tocS_WhatistheMITREATT_CKmappingforthisCVE_CVE-2017-0614">WhatistheMITREATT_CKmappingforthisCVE_CVE-2017-0614</h2>
 <!-- backwards compatibility -->
@@ -350,14 +345,12 @@ MitreTechnique
     }
   ]
 }
-
 ```
 
 WhatistheMITREATT&CKmappingforthisCVE?CVE-2017-0614
 
 ### Properties
 
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|results|[[Result](#schemaresult)]|true|none|none|
-
+| Name    | Type                      | Required | Restrictions | Description |
+| ------- | ------------------------- | -------- | ------------ | ----------- |
+| results | [[Result](#schemaresult)] | true     | none         | none        |
