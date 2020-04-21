@@ -24,6 +24,13 @@ under the License.
 // GENERAL STUFF
 ////////////////////////////////////////////////////////////////////////////////
 
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+html {
+  font-family: -apple-system;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
 html,
 body {
   color: $main-text;
@@ -50,7 +57,7 @@ body {
 
 .toc-wrapper {
   transition: left 0.3s ease-in-out;
-
+  background-color: #c7c0d2;
   overflow-y: auto;
   overflow-x: hidden;
   position: fixed;
@@ -59,9 +66,9 @@ body {
   left: 0;
   bottom: 0;
   width: $nav-width;
-  background-color: $nav-bg;
   font-size: 13px;
   font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI";
 
   // language selector for mobile devices
   .lang-selector {
@@ -83,7 +90,8 @@ body {
     position: relative;
 
     input {
-      background: $nav-bg;
+      background: #fff;
+      // background: $nav-bg;
       border-width: 0 0 1px 0;
       border-color: $search-box-border-color;
       padding: 6px 0 6px 20px;
@@ -154,31 +162,30 @@ body {
 
   // This is the currently selected ToC entry
   .toc-link.active {
-    background-color: #4147d6;
     color: $nav-active-text;
+    background-color: $nav-active-parent-bg;
   }
 
   // this is parent links of the currently selected ToC entry
   .toc-link.active-parent {
-    background-color: $nav-active-parent-bg;
+    background-color: #c7c0ff;
     color: $nav-active-parent-text;
   }
 
   .toc-list-h2 {
     display: none;
-    background-color: $nav-subitem-bg;
+    background-color: #c7c0ff;
     font-weight: 500;
   }
 
   .toc-h2 {
     padding-left: $nav-padding + $nav-indent;
-    font-size: 12px;
+    font-size: 15px;
   }
 
   .toc-footer {
     padding: 1em 0;
     margin-top: 1em;
-    border-top: 1px dashed $nav-footer-border-color;
 
     li,
     a {
@@ -191,7 +198,7 @@ body {
     }
 
     li {
-      font-size: 0.8em;
+      // font-size: 0.8em;
       line-height: 1.7;
       text-decoration: none;
     }
@@ -200,12 +207,13 @@ body {
 
 .toc-link,
 .toc-footer li {
-  padding: 0 $nav-padding 0 $nav-padding;
+  padding: 1rem;
   display: block;
   overflow-x: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   text-decoration: none;
+  font-size: 1.3rem;
   color: $nav-text;
   transition-property: background;
   transition-timing-function: linear;
@@ -269,7 +277,7 @@ body {
   // half of the content always this background color.
   .dark-box {
     width: $examples-width;
-    background-color: $examples-bg;
+    background-color: #2e3336;
     position: absolute;
     right: 0;
     top: 0;
@@ -279,14 +287,17 @@ body {
   .lang-selector {
     position: fixed;
     z-index: 50;
-    border-bottom: 5px solid $lang-select-active-bg;
+    font-size: 1.2rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI";
+    border-bottom: 5px solid $nav-active-parent-bg;
   }
 }
 
 .lang-selector {
-  background-color: $lang-select-bg;
+  background-color: $nav-active-parent-bg;
   width: 100%;
   font-weight: bold;
+  padding: 1rem;
   a {
     display: block;
     float: left;
@@ -298,12 +309,12 @@ body {
 
     &:active,
     &:focus {
-      background-color: $lang-select-pressed-bg;
+      background-color: $nav-active-bg;
       color: $lang-select-pressed-text;
     }
 
     &.active {
-      background-color: $lang-select-active-bg;
+      background-color: $nav-active-bg;
       color: $lang-select-active-text;
     }
   }
@@ -326,6 +337,8 @@ body {
   // to place content above the dark box
   position: relative;
   z-index: 30;
+  min-height: 100%;
+  background-attachment: fixed;
 
   &:after {
     content: "";
@@ -370,6 +383,7 @@ body {
     font-size: 25px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI";
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
     border-top: 1px solid #ccc;
@@ -549,7 +563,7 @@ body {
 .content {
   pre,
   blockquote {
-    background-color: $code-bg;
+    background-color: #1e2224;
     color: #fff;
 
     margin: 0;
@@ -564,6 +578,8 @@ body {
 
     & > p {
       margin: 0;
+      background-color: #fff;
+      color: #000;
     }
 
     a {
@@ -582,7 +598,7 @@ body {
 
   blockquote {
     & > p {
-      background-color: $code-annotation-bg;
+      background-color: #191d1f;
       padding: $code-annotation-padding 2em;
       color: #eee;
     }
@@ -615,6 +631,7 @@ body {
   .toc-link {
     padding-top: 0.3em;
     padding-bottom: 0.3em;
+    color: #501196;
   }
 }
 
@@ -633,6 +650,7 @@ body {
 
   .page-wrapper .lang-selector {
     display: none;
+    border-bottom: 5px solid #1d0063;
   }
 
   %right-col {
@@ -654,5 +672,6 @@ body {
 
 .highlight,
 .highlight .w {
-  background-color: $code-bg;
+  // background-color: $code-b;
+  background-color: black;
 }

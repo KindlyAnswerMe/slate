@@ -15,5 +15,5 @@ VOLUME /usr/src/app/source
 
 EXPOSE 4567
 
-CMD ["bundle", "exec", "middleman", "build", "--clean"]
-# CMD ["bundle", "exec", "middleman", "server", "--watcher-force-polling"]
+# CMD ["bundle", "exec", "middleman", "build", "--clean"]
+CMD ["bundle", "exec", "middleman", "server", "--watcher-force-polling"]

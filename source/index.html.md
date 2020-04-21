@@ -24,7 +24,7 @@ headingLevel: 2
 
 Base URLs:
 
-- <a href="https://api.kindlyanswer.me/cveintel/CVE">https://api.kindlyanswer.me/cveintel/CVE</a>
+- <a href="#">https://api.kindlyanswer.me/cveintel/CVE</a>
 
 <h1 id="api-gateway-misc">Misc</h1>
 
