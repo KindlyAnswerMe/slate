@@ -327,6 +327,9 @@ body {
       background-color: $nav-active-bg;
       color: $lang-select-active-text;
     }
+    &:hover {
+      background-color: $nav-active-bg;
+    }
   }
 
   &:after {
