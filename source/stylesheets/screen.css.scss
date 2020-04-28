@@ -470,7 +470,7 @@ body {
     td {
       text-align: left;
       vertical-align: top;
-      line-height: 1.6;
+      line-height: 1.7;
       code {
         white-space: nowrap;
       }
@@ -511,7 +511,7 @@ body {
   li,
   dt,
   dd {
-    line-height: 1.6;
+    line-height: 2;
     margin-top: 0;
   }
 
@@ -538,7 +538,7 @@ body {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
-    line-height: 1.6;
+    line-height: 1.7;
 
     &.warning {
       background-color: $aside-warning-bg;
