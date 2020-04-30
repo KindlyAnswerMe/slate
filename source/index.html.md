@@ -24,35 +24,20 @@ headingLevel: 2
 
 <!-- Base URLs: -->
 
-Welcome to Kindly’s API! You can use this API to access all our API endpoints and never have to switch again between providers, such as the CVE API to look up MITRE ATT&CK, or the IP API to look up company information related to an IP.
+Welcome to Kindly’s API!
 
-The API is organized around REST. All request and response bodies, including errors, are encoded in JSON.
+You can use this API to access all our API endpoints and never have to switch again between providers, such as the CVE API to look up MITRE ATT&CK, or the IP API to look up company information related to an IP.
 
+The API is developed around RESTful principles. All request and response bodies, including errors, are encoded in JSON.
 We also have some specific language bindings to make integration easier. You can switch the programming language of the examples with the tabs in the top right.
-
-Currently, we support the following official client bindings:
-
-- **Shell**
-- **HTTP**
-- **JavaScript**
-- **Ruby**
-- **Python**
-- **PHP**
-- **Java**
-- **Go**
 
 To play around with a few examples, we recommend a REST client called Postman. Simply tap the button below to import a pre-made collection of examples [coming soon].
 
 # Authentication
 
-Authentication is done via your account’s API key which looks like:
-uAEDJWy3eucjwQ6UEkVNHC4unxGs897S
+Authentication is done via your account’s API key.
 
-You can pass your API key as a bearer token in an Authorization header. You can see your account’s API keys, and roll them if necessary, in the dashboard [coming soon]. For now please look out for our email:
-
-Welcome to Kindly!
-Getting started is simple. Here is your API key [XXX]. Take advantage of our documentation for all the details on implementation via one of our SDKs as well as information on our advanced features. If you have any questions, please let us know, we’re here to help you succeed.
-hi@kindlyanswer.me
+You can pass your API key in the 'X-API-key' header. We're working on an user dashboard so you can see your account's API keys and renew them if necessary. For now, it will be included in our welcome email, for any requests regarding your API key just send us an email at hi@kindlyanswer.me
 
 # Errors
 
@@ -91,7 +76,7 @@ When we make backward-incompatible changes to any of our APIs, we release new da
 | --- | --------------- | ------------ |
 | CVE | 4/1/2020        | 4/1/2020     |
 
-<!-- - <a href="http://ec2-52-13-73-88.us-west-2.compute.amazonaws.com:20000/">http://ec2-52-13-73-88.us-west-2.compute.amazonaws.com:20000/</a> -->
+<!-- - <a href="http://api.kindlyanswer.me/">http://api.kindlyanswer.me/</a> -->
 
 # CVE API
 
@@ -99,18 +84,18 @@ When we make backward-incompatible changes to any of our APIs, we release new da
 
 <!-- <a id="opIdMockDataAPIUsers"></a> -->
 
-> Code samples
+> To look up a CVE
 
 ```shell
 # You can also use wget
-curl -X POST http://ec2-52-13-73-88.us-west-2.compute.amazonaws.com:20000/cveintel/CVE/{{CVE-2020-0614}} \
+curl -X GET https://api.kindlyanswer.me/cveintel/CVE/CVE-2020-0614
   -H 'x-api-key: string'
 
 ```
 
 ```http
-POST http://ec2-52-13-73-88.us-west-2.compute.amazonaws.com:20000/cveintel/CVE/{{CVE-2020-0614}} HTTP/1.1
-Host: ec2-52-13-73-88.us-west-2.compute.amazonaws.com:20000
+GET https://api.kindlyanswer.me/cveintel/CVE/CVE-2020-0614 HTTP/1.1
+Host: api.kindlyanswer.me
 
 x-api-key: string
 
@@ -121,14 +106,11 @@ const headers = {
   "x-api-key": "string",
 };
 
-fetch(
-  "http://ec2-52-13-73-88.us-west-2.compute.amazonaws.com:20000/cveintel/CVE/{{CVE-2020-0614}}",
-  {
-    method: "POST",
+fetch("https://api.kindlyanswer.me/cveintel/CVE/CVE-2020-0614", {
+  method: "GET",
 
-    headers: headers,
-  }
-)
+  headers: headers,
+})
   .then(function (res) {
     return res.json();
   })
@@ -145,7 +127,7 @@ headers = {
   'x-api-key' => 'string'
 }
 
-result = RestClient.post 'http://ec2-52-13-73-88.us-west-2.compute.amazonaws.com:20000/cveintel/CVE/{{CVE-2020-0614}}',
+result = RestClient.get 'https://api.kindlyanswer.me/cveintel/CVE/CVE-2020-0614',
   params: {
   }, headers: headers
 
@@ -159,7 +141,7 @@ headers = {
   'x-api-key': 'string'
 }
 
-r = requests.post('http://ec2-52-13-73-88.us-west-2.compute.amazonaws.com:20000/cveintel/CVE/{{CVE-2020-0614}}', headers = headers)
+r = requests.get('https://api.kindlyanswer.me/cveintel/CVE/CVE-2020-0614, headers = headers)
 
 print(r.json())
 
@@ -180,7 +162,7 @@ $client = new \GuzzleHttp\Client();
 $request_body = array();
 
 try {
-    $response = $client->request('POST','http://ec2-52-13-73-88.us-west-2.compute.amazonaws.com:20000/cveintel/CVE/{{CVE-2020-0614}}', array(
+    $response = $client->request('GET','https://api.kindlyanswer.me/cveintel/CVE/CVE-2020-0614', array(
         'headers' => $headers,
         'json' => $request_body,
        )
@@ -197,9 +179,9 @@ try {
 ```
 
 ```java
-URL obj = new URL("http://ec2-52-13-73-88.us-west-2.compute.amazonaws.com:20000/cveintel/CVE/{{CVE-2020-0614}}");
+URL obj = new URL("https://api.kindlyanswer.me/cveintel/CVE/CVE-2020-0614");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
+con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
 BufferedReader in = new BufferedReader(
     new InputStreamReader(con.getInputStream()));
@@ -228,7 +210,146 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "http://ec2-52-13-73-88.us-west-2.compute.amazonaws.com:20000/cveintel/CVE/{{CVE-2020-0614}}", data)
+    req, err := http.NewRequest("GET", "https://api.kindlyanswer.me/cveintel/CVE/CVE-2020-0614", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+> To look up more than one CVE
+
+```shell
+# You can also use wget
+curl -X GET https://api.kindlyanswer.me/cveintel/CVE/CVE-2020-0609,CVE-2020-0611,CVE-2017-8620,CVE-2020-3266
+  -H 'x-api-key: string'
+
+```
+
+```http
+GET https://api.kindlyanswer.me/cveintel/CVE/CVE-2020-0609,CVE-2020-0611,CVE-2017-8620,CVE-2020-3266 HTTP/1.1
+Host: api.kindlyanswer.me
+
+x-api-key: string
+
+```
+
+```javascript
+const headers = {
+  "x-api-key": "string",
+};
+
+fetch(
+  "https://api.kindlyanswer.me/cveintel/CVE/CVE-2020-0609,CVE-2020-0611,CVE-2017-8620,CVE-2020-3266",
+  {
+    method: "GET",
+
+    headers: headers,
+  }
+)
+  .then(function (res) {
+    return res.json();
+  })
+  .then(function (body) {
+    console.log(body);
+  });
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'x-api-key' => 'string'
+}
+
+result = RestClient.get 'https://api.kindlyanswer.me/cveintel/CVE/CVE-2020-0609,CVE-2020-0611,CVE-2017-8620,CVE-2020-3266',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+```python
+import requests
+headers = {
+  'x-api-key': 'string'
+}
+
+r = requests.get('https://api.kindlyanswer.me/cveintel/CVE/CVE-2020-0609,CVE-2020-0611,CVE-2017-8620,CVE-2020-3266, headers = headers)
+
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'x-api-key' => 'string',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','https://api.kindlyanswer.me/cveintel/CVE/CVE-2020-0609,CVE-2020-0611,CVE-2017-8620,CVE-2020-3266', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
+
+```
+
+```java
+URL obj = new URL("https://api.kindlyanswer.me/cveintel/CVE/CVE-2020-0609,CVE-2020-0611,CVE-2017-8620,CVE-2020-3266");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "x-api-key": []string{"string"},
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.kindlyanswer.me/cveintel/CVE/CVE-2020-0609,CVE-2020-0611,CVE-2017-8620,CVE-2020-3266", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -245,19 +366,13 @@ To use the CVE API, send us a CVE and we’ll return the information we have on 
 HTTP Request
 GET https://api.kindlyanswer.me/cveintel/CVE/CVE-2020-0614
 
-HTTP GET headers
+## HTTP GET headers
 
 | Name      | in     | Type   | Description |
 | --------- | ------ | ------ | ----------- |
 | X-API-key | header | string | API Key     |
 
-<h3 id="whatisthemitreatt&ckmappingforthiscve-responses">Responses</h3>
-
-| Status | Meaning                                                 | Description | Schema                                                                                         |
-| ------ | ------------------------------------------------------- | ----------- | ---------------------------------------------------------------------------------------------- |
-| 200    | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | none        | [What is the MITRE ATT&CK mapping for this CVE](#schemawhatisthemitreatt_ckmappingforthiscve_) |
-
-### Response Headers
+## Response Headers
 
 | Status | Header                  | Type   |
 | ------ | ----------------------- | ------ |
@@ -269,8 +384,23 @@ HTTP GET headers
 | 200    | X-Kong-Proxy-Latency    | string |
 | 200    | X-Kong-Upstream-Latency | string |
 
-<h2 id="tocS_Result">Attributes</h2>
 <!-- backwards compatibility -->
+
+<a id="schemawhatisthemitreatt_ckmappingforthiscve_"></a>
+<a id="schema_WhatistheMITREATT_CKmappingforthisCVE_"></a>
+<a id="tocSwhatisthemitreatt_ckmappingforthiscve_"></a>
+<a id="tocswhatisthemitreatt_ckmappingforthiscve_"></a>
+
+## Properties
+
+| Name    | Type   | Required |
+| ------- | ------ | -------- |
+| results | Result | true     |
+
+<!-- backwards compatibility -->
+
+## Results
+
 <a id="schemaresult"></a>
 <a id="schema_Result"></a>
 <a id="tocSresult"></a>
@@ -304,24 +434,22 @@ HTTP GET headers
 }
 ```
 
-### Properties
+| Name             | Type           | Required |
+| ---------------- | -------------- | -------- |
+| CVE              | string         | true     |
+| CVSS2_Score      | number(double) | true     |
+| CVSS2_Vector     | string         | true     |
+| CVSS3_Score      | number(double) | true     |
+| CVSS3_Vector     | string         | true     |
+| CWEs             | string         | true     |
+| Coverage         | string         | true     |
+| Exploit_Code     | string         | true     |
+| Industry_Spread  | string         | true     |
+| Mitre_Techniques | MitreTechnique | true     |
+| Threat_Activity  | string         | true     |
 
-| Name             | Type                                      | Required |
-| ---------------- | ----------------------------------------- | -------- |
-| CVE              | string                                    | true     |
-| CVSS2_Score      | number(double)                            | true     |
-| CVSS2_Vector     | string                                    | true     |
-| CVSS3_Score      | number(double)                            | true     |
-| CVSS3_Vector     | string                                    | true     |
-| CWEs             | string                                    | true     |
-| Coverage         | string                                    | true     |
-| Exploit_Code     | string                                    | true     |
-| Industry_Spread  | string                                    | true     |
-| Mitre_Techniques | [[MitreTechnique](#schemamitretechnique)] | true     |
-| Threat_Activity  | string                                    | true     |
+## Technique
 
-<h2 id="tocS_MitreTechnique">Mitre Technique</h2>
-<!-- backwards compatibility -->
 <a id="schemamitretechnique"></a>
 <a id="schema_MitreTechnique"></a>
 <a id="tocSmitretechnique"></a>
@@ -335,23 +463,10 @@ HTTP GET headers
 }
 ```
 
-### Properties
-
 | Name                 | Type   | Required |
 | -------------------- | ------ | -------- |
 | Technique_ID         | string | true     |
 | Technique_Name       | string | true     |
 | Technique_Tactic_IDS | string | true     |
 
-<h2 id="tocS_WhatistheMITREATT_CKmappingforthisCVE_">What is the MITRE ATT&CK mapping for this CVE</h2>
 <!-- backwards compatibility -->
-<a id="schemawhatisthemitreatt_ckmappingforthiscve_"></a>
-<a id="schema_WhatistheMITREATT_CKmappingforthisCVE_"></a>
-<a id="tocSwhatisthemitreatt_ckmappingforthiscve_"></a>
-<a id="tocswhatisthemitreatt_ckmappingforthiscve_"></a>
-
-### Properties
-
-| Name    | Type                      | Required |
-| ------- | ------------------------- | -------- |
-| results | [[Result](#schemaresult)] | true     |
